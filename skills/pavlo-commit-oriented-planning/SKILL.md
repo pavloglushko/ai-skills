@@ -1,6 +1,6 @@
 ---
 name: pavlo-commit-oriented-planning
-version: "2.0.1"
+version: "2.0.2"
 description: >
   Framework for breaking down a task into logically independent,
   testable steps.
@@ -201,10 +201,12 @@ just fix and note what changed.
   must be achievable by the steps as planned.
   Flag any criterion that no step addresses.
 
-- **Documentation step is last** —
-  if the ticket requires a documentation update,
-  the step that updates `docs/`
-  must be the final step in the plan.
+- **Documentation step is always last** —
+  every plan must end with an "Update documentation" step.
+  This step updates whatever documentation is relevant
+  in the repository (README, API docs, inline docs, etc.).
+  It must always be the final step in the plan,
+  even if the ticket does not explicitly mention docs.
 
 ### After Fixing
 
@@ -242,8 +244,13 @@ If nothing needed fixing, write "No issues found."
 - Adapter tests for FooRepository
 
 ### Step 6: [docs] Update documentation
-- Add module documentation for the new feature
+- Update relevant repository documentation
+  (README, API docs, inline docs, etc.)
 ```
+
+> **Note:** The documentation step is always the last step
+> in every plan, regardless of whether the ticket
+> explicitly requires it.
 
 ## Benefits
 
