@@ -19,22 +19,56 @@ a specific workflow — from writing tickets to rewriting git history.
 
 ## Installation
 
-Add all skills to your project:
+### Project-Level (Current Repo Only)
+
+Install all skills into the current project for all detected agents:
 
 ```bash
 npx skills add pavloglushko/ai-skills --all
 ```
 
-Add a single skill:
+Install a single skill:
 
 ```bash
 npx skills add pavloglushko/ai-skills --skill pavlo-commit-oriented-planning
 ```
 
-Install globally (available in all projects):
+### Global (All Projects)
+
+Install globally so skills are available in every project:
 
 ```bash
 npx skills add pavloglushko/ai-skills --all -g
+```
+
+### GitHub Copilot in PyCharm / JetBrains IDEs
+
+Target GitHub Copilot specifically:
+
+```bash
+# Project-level — installs into .agents/skills/ in your repo
+npx skills add pavloglushko/ai-skills --all --agent github-copilot
+
+# Global — installs into ~/.copilot/skills/
+npx skills add pavloglushko/ai-skills --all --agent github-copilot -g
+```
+
+> **Note:** After installing, restart the Copilot chat or reopen
+> the project for the agent to pick up the new skills.
+
+### Updating Skills
+
+Update all installed skills to the latest version:
+
+```bash
+# Update project skills
+npx skills update
+
+# Update global skills
+npx skills update -g
+
+# Update a single skill
+npx skills update pavlo-commit-oriented-planning
 ```
 
 ## How It Works
