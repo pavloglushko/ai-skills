@@ -44,14 +44,15 @@ npx skills add pavloglushko/ai-skills --all -g
 
 ### GitHub Copilot in PyCharm / JetBrains IDEs
 
-Target GitHub Copilot specifically:
+Target GitHub Copilot specifically
+(do not use `--all` — it overrides `--agent` with all agents):
 
 ```bash
 # Project-level — installs into .agents/skills/ in your repo
-npx skills add pavloglushko/ai-skills --all --agent github-copilot
+npx skills add pavloglushko/ai-skills --skill '*' --agent github-copilot -y
 
 # Global — installs into ~/.copilot/skills/
-npx skills add pavloglushko/ai-skills --all --agent github-copilot -g
+npx skills add pavloglushko/ai-skills --skill '*' --agent github-copilot -g -y
 ```
 
 > **Note:** After installing, restart the Copilot chat or reopen
@@ -63,10 +64,10 @@ Update all installed skills to the latest version:
 
 ```bash
 # Update project skills
-npx skills update
+npx skills update -y
 
 # Update global skills
-npx skills update -g
+npx skills update -g -y
 
 # Update a single skill
 npx skills update pavlo-commit-oriented-planning
