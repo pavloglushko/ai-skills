@@ -16,6 +16,7 @@ a specific workflow — from writing tickets to rewriting git history.
 | [pavlo-markdown-editor](skills/pavlo-markdown-editor/SKILL.md) | Create, edit, and reformat Markdown files following strict line-length and meaning-boundary wrapping rules. |
 | [pavlo-pr-writer](skills/pavlo-pr-writer/SKILL.md) | Generates professional PR descriptions in Markdown format based on ticket, plan, and rewritten commits. |
 | [pavlo-release-announcer](skills/pavlo-release-announcer/SKILL.md) | Generates non-technical Slack announcements for end users based on ticket, commits, and plan. |
+| [pavlo-terminal-commands](skills/pavlo-terminal-commands/SKILL.md) | Safe terminal command patterns for AI coding agents. Use when running shell commands to avoid hanging terminals and parsing errors. |
 
 ## Installation
 
