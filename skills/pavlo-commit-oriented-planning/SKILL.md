@@ -1,6 +1,6 @@
 ---
 name: pavlo-commit-oriented-planning
-version: "2.0.2"
+version: "2.0.3"
 description: >
   Framework for breaking down a task into logically independent,
   testable steps.
@@ -277,6 +277,11 @@ If nothing needed fixing, write "No issues found."
 - ❌ Vague step titles ("WIP", "cleanup", "fix stuff")
 - ❌ Circular dependencies
   (Step A depends on B, B depends on A)
+- ❌ Including Jira ticket metadata JSON blocks
+  (ticket, epic, type, priority, labels, components,
+  story_points, sprint, etc.) in the plan.
+  The plan is about steps, not ticket bookkeeping.
+  Omit any such JSON metadata entirely.
 
 ## Real-World Example
 
