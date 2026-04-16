@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Git filter-branch message filter that reads mapping from a JSON file.
 
 Usage (as git filter-branch --msg-filter):
