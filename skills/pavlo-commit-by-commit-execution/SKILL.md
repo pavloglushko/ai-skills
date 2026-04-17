@@ -1,6 +1,5 @@
 ---
 name: pavlo-commit-by-commit-execution
-version: "2.0.0"
 description: >
   Systematic approach to implementing multi-step plans
   with explicit user confirmation between each step.
@@ -13,6 +12,7 @@ description: >
   in the project root.
 metadata:
   author: Pavlo Glushko
+  version: "2.0.0"
   applies_to:
     - "**/plan-*.md"
     - "**/*-plan.md"

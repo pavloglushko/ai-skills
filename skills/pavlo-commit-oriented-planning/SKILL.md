@@ -1,6 +1,5 @@
 ---
 name: pavlo-commit-oriented-planning
-version: "2.0.3"
 description: >
   Framework for breaking down a task into logically independent,
   testable steps.
@@ -13,6 +12,7 @@ description: >
   before presenting the final plan.
 metadata:
   author: Pavlo Glushko
+  version: "2.0.3"
   applies_to:
     - "**/plan-*.md"
     - "**/*-plan.md"

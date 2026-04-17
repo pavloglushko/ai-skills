@@ -1,6 +1,5 @@
 ---
 name: pavlo-commit-rewriter
-version: "3.1.0"
 description: >
   Automates Phases 1–3 of the commit rewriting workflow: preparation,
   analysis & message drafting, and rewriting via git filter-branch.
@@ -8,6 +7,7 @@ description: >
   to improve clarity, follow conventions, and align with a plan.
 metadata:
   author: Pavlo Glushko
+  version: "3.1.0"
   applies_to:
     - "**/.github/skills/pavlo-commit-rewriter/**"
   triggers:

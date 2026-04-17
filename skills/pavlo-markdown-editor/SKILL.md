@@ -1,12 +1,12 @@
 ---
 name: pavlo-markdown-editor
-version: "1.1.0"
 description: >
   Create, edit, and reformat Markdown files following strict line-length
   and meaning-boundary wrapping rules.
   Use when creating or improving any .md file in the repository.
 metadata:
   author: Pavlo Glushko
+  version: "1.1.0"
   applies_to:
     - "**/*.md"
   triggers:

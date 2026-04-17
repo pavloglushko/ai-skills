@@ -1,6 +1,5 @@
 ---
 name: pavlo-jira-ticket-writer
-version: "1.5.2"
 description: >
   Write structured engineering tickets for Jira, output as .md files
   ready to paste into a Jira ticket description.
@@ -9,6 +8,7 @@ description: >
   detail and internal references before pasting into Jira.
 metadata:
   author: Pavlo Glushko
+  version: "1.5.2"
   applies_to:
     - "docs/ticket_*.md"
     - "docs/*_forJira.md"

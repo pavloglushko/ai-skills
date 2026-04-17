@@ -1,11 +1,11 @@
 ---
 name: pavlo-pr-writer
-version: "1.1.0"
 description: >
   Generates professional PR descriptions in Markdown format based on ticket, plan, and rewritten commits.
   Use after Phases 1 & 2 when you're ready to prepare a pull request for code review.
 metadata:
   author: Pavlo Glushko
+  version: "1.1.0"
   applies_to:
     - "**/.github/skills/pavlo-pr-writer/**"
   triggers:

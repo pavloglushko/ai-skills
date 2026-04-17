@@ -1,12 +1,12 @@
 ---
 name: pavlo-terminal-commands
-version: "1.0.0"
 description: >
   Safe terminal command patterns for AI coding agents.
   Use when running shell commands, especially Python scripts,
   to avoid hanging terminals and parsing errors.
 metadata:
   author: Pavlo Glushko
+  version: "1.0.0"
   applies_to:
     - "**/*.sh"
     - "**/*.py"

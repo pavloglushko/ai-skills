@@ -1,11 +1,11 @@
 ---
 name: pavlo-release-announcer
-version: "1.1.0"
 description: >
   Generates non-technical Slack announcements for end users based on ticket, commits, and plan.
   Use after Phase 3 when you're ready to communicate the release to non-technical stakeholders.
 metadata:
   author: Pavlo Glushko
+  version: "1.1.0"
   applies_to:
     - "**/.github/skills/pavlo-release-announcer/**"
   triggers:

@@ -1,12 +1,12 @@
 ---
 name: pavlo-marp-presentation
-version: "1.3.0"
 description: >
   Create, edit, preview, and export Marp Markdown presentations via CLI.
   Use when creating or working with slide decks, exporting to PDF,
   or previewing presentations. Installs marp-cli via Homebrew if missing.
 metadata:
   author: Pavlo Glushko
+  version: "1.3.0"
   applies_to:
     - "docs/**/*presentation*.md"
     - "docs/**/*slides*.md"
