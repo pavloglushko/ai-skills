@@ -4,12 +4,16 @@ This repository contains reusable AI coding agent skills.
 Each skill is a standalone `SKILL.md` file that teaches an AI agent
 a specific workflow.
 
+Skills follow the [Agent Skills specification](https://agentskills.io/specification).
+A local mirror lives at `skills/pavlo-agent-skill-creator/references/agentskills-specification.md`.
+See `pavlo-agent-skill-creator` for the full authoring guide.
+
 ## Short Commands
 
 DNE means "Do not edit anything"
 If user mentions it in the prompt, you should not edit files, i.e., work in question - answer mode.
 
-DNI means "Do not implement". If user mentions it in the prompt, 
+DNI means "Do not implement". If user mentions it in the prompt,
 you should not implement any code but can change the plan .md, ticket .md or similar planning files.
 
 ## Project Structure
@@ -24,28 +28,33 @@ ai-skills/
 │   └── git-commit-instructions.md     # Commit message conventions
 └── skills/                            # All skills live here
     └── <skill-name>/
-        ├── SKILL.md                   # Skill definition (YAML front matter + instructions)
-        ├── scripts/                   # Optional helper scripts
-        └── examples/                  # Optional real-world reference outputs
+        ├── SKILL.md                   # Skill definition (YAML frontmatter + instructions)
+        ├── scripts/                   # Optional: executable helper scripts
+        ├── references/                # Optional: additional documentation
+        ├── examples/                  # Optional: real-world reference outputs
+        └── assets/                    # Optional: templates, images, data files
 ```
 
 ## Skill Naming
 
 - Directory names follow the pattern: `pavlo-<kebab-case-topic>`
-- The `name` field in YAML front matter must exactly match the directory name
+- The `name` field in YAML frontmatter must exactly match the directory name
+- `name` must be 1-64 lowercase alphanumeric characters and hyphens,
+  no leading/trailing/consecutive hyphens
 
 ## SKILL.md Format
 
 Every skill file must have:
 
-1. **YAML front matter** between `---` delimiters with:
-   - `name` — matches the directory name
-   - `version` — semver string (e.g., `"1.0.0"`)
-   - `description` — one or two sentences; include a "Use when …" clause
+1. **YAML frontmatter** between `---` delimiters with:
+   - `name` *(required)* — matches the directory name
+   - `description` *(required)* — 1-1024 chars; include a "Use when …" clause
    - `metadata.author` — `Pavlo Glushko`
+   - `metadata.version` — semver string (e.g., `"1.0.0"`)
    - `metadata.applies_to` — glob patterns for target files
    - `metadata.triggers` — lower-case phrases that activate the skill
    - `metadata.capabilities` — concrete actions the skill can perform
+   - Optional spec fields: `license`, `compatibility`, `allowed-tools`
 
 2. **Body** — procedural instructions the agent follows
 
@@ -54,15 +63,15 @@ See `pavlo-agent-skill-creator` for the full specification of this format.
 ## When Adding a New Skill
 
 1. Create a directory: `skills/pavlo-<topic>/`
-2. Write `SKILL.md` with YAML front matter and procedural body
-3. Add examples in `examples/` if the skill produces output files
+2. Write `SKILL.md` with YAML frontmatter and procedural body
+3. Add optional subdirectories (`examples/`, `scripts/`, `references/`, `assets/`) as needed
 4. Add the skill to the table in `README.md`
 
 ## When Editing an Existing Skill
 
 1. Read the full `SKILL.md` before making changes
 2. Make surgical updates — don't rewrite sections that are still accurate
-3. Bump `version` in the front matter (minor for additions, patch for fixes)
+3. Bump `metadata.version` in the frontmatter (minor for additions, patch for fixes)
 4. Update the description in `README.md` if it changed
 
 ## Writing Guidelines
