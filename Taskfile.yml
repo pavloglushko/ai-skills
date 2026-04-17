@@ -1,0 +1,20 @@
+version: "3"
+
+tasks:
+  default:
+    desc: list all available tasks
+    cmds:
+      - task --list
+
+  validate-skills:
+    desc: Validate all skills against the Agent Skills specification
+    cmds:
+      - npm ls skills-ref --prefix {{.ROOT_DIR}} >/dev/null 2>&1 || npm install --save-dev skills-ref --prefix {{.ROOT_DIR}}
+      - |
+        failed=0
+        for skill in skills/*/; do
+          echo "▶ Validating ${skill}…"
+          npx --prefix {{.ROOT_DIR}} skills-ref validate "./${skill}" || failed=1
+        done
+        exit $failed
+
