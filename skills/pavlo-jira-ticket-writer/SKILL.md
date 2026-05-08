@@ -8,7 +8,7 @@ description: >
   detail and internal references before pasting into Jira.
 metadata:
   author: Pavlo Glushko
-  version: "1.5.2"
+  version: "1.6.0"
   applies_to:
     - "docs/ticket_*.md"
     - "docs/*_forJira.md"
@@ -246,9 +246,11 @@ docs/M2_PR4_ticket.md  →  docs/M2_PR4_ticket_forJira.md
 Apply all of the following transformations to the copy.
 The source file is **not modified**.
 
-#### 1. Remove the agent context comment
+#### 1. Remove the agent context comment and JSON metadata block
 
 Delete the entire `<!-- Notes for AI agent: ... -->` HTML comment block at the top of the file.
+Delete the fenced JSON metadata block (`\`\`\`json { ... }\`\`\``) as well —
+Jira field values are set via the Jira UI, not pasted into the description.
 
 #### 2. Remove the PR title and Epic line
 
@@ -326,7 +328,6 @@ not Jira content.
 
 ### What to Keep
 
-- The JSON metadata block (`\`\`\`json { ... }\`\`\``).
 - The `## Objective` section, unchanged.
 - The `## Background & Motivation` section, unchanged.
 - The `## Scope` section, unchanged.
@@ -341,7 +342,8 @@ not Jira content.
 ## Real-World Example
 
 See `examples/E1_PR2_ticket.md` for a reference ticket.
-Read it before generating a new ticket to match the style, detail level, and structure.
+See `examples/E1_PR2_ticket_forJira.md` for the corresponding Jira-ready export.
+Read both before generating output to match the style, detail level, and structure.
 
 ---
 
