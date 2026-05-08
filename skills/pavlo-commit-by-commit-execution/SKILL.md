@@ -12,7 +12,7 @@ description: >
   in the project root.
 metadata:
   author: Pavlo Glushko
-  version: "2.0.0"
+  version: "2.1.0"
   applies_to:
     - "**/plan-*.md"
     - "**/*-plan.md"
@@ -220,6 +220,23 @@ follow the conventions in
   (`ruff format`, `ruff check`, etc.)
 - Write clear, focused commits
   (1 logical change per step)
+- **Mark temporary solutions with TODO comments.**
+  When a step introduces a workaround or placeholder
+  that the plan addresses in a later step,
+  add a `# TODO: Step X — <what will change>` comment
+  at that location.
+  If you already know the final code,
+  include it as commented-out lines
+  directly below the TODO:
+
+  ```python
+  # TODO: Step 4 — replace stub with real parser
+  result = "placeholder"
+  # result = RealParser().parse(input)
+  ```
+
+  This makes the intent visible during review
+  and simplifies the future step's implementation.
 
 ### When Reporting to User
 
