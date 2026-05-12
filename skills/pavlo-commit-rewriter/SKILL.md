@@ -7,7 +7,7 @@ description: >
   to improve clarity, follow conventions, and align with a plan.
 metadata:
   author: Pavlo Glushko
-  version: "3.1.0"
+  version: "3.1.1"
   applies_to:
     - "**/.github/skills/pavlo-commit-rewriter/**"
   triggers:
@@ -84,7 +84,7 @@ All commands below use `SCRIPTS=.github/skills/pavlo-commit-rewriter/scripts`.
 
 11. **Stash uncommitted changes** (rebase and filter-branch require a clean tree):
     ```
-    git stash --include-untracked
+    git stash
     ```
 
 12. **Generate rebase todo and message mapping:**
