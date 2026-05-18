@@ -5,18 +5,19 @@
   - docs/architecture.md — Current module documentation
 -->
 
-```json
-{
-  "ticket": "TBD",
-  "epic": "E1 — Warehouse Management",
-  "type": "Story",
-  "priority": "Medium",
-  "labels": ["inventory", "backend"],
-  "components": ["warehouse"],
-  "story_points": null,
-  "sprint": null
-}
-```
+---
+ticket: TBD
+epic: "E1 — Warehouse Management"
+type: Story
+priority: Medium
+labels:
+  - inventory
+  - backend
+components:
+  - warehouse
+story_points: null
+sprint: null
+---
 
 # PR 2: Add Inventory Reservation & Stock Validation
 

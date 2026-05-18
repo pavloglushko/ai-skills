@@ -8,7 +8,7 @@ description: >
   detail and internal references before pasting into Jira.
 metadata:
   author: Pavlo Glushko
-  version: "1.6.0"
+  version: "1.7.0"
   applies_to:
     - "docs/ticket_*.md"
     - "docs/*_forJira.md"
@@ -29,7 +29,7 @@ metadata:
   capabilities:
     - create new Jira ticket .md files
     - produce structured tickets with Objective, Background, Scope, Requirements, and Acceptance Criteria sections
-    - include JSON metadata block with Jira field values
+    - include YAML frontmatter metadata block with Jira field values
     - reference real codebase files and symbols in Current State sections
     - produce a stripped *_forJira.md copy ready to paste directly into Jira
 ---
@@ -65,26 +65,30 @@ An HTML comment block at the very top listing the source documents the ticket is
 
 Include only documents that actually exist and are relevant.
 
-### 2. JSON Metadata Block
+### 2. YAML Frontmatter Metadata Block
 
-Immediately after the comment, a fenced JSON code block containing Jira field values:
+Immediately after the comment, a YAML frontmatter block (between `---` delimiters)
+containing Jira field values:
 
-```json
-{
-  "ticket": "<TICKET-KEY or TBD>",
-  "epic": "<EPIC-KEY> — <Epic title>",
-  "type": "Story",
-  "priority": "Medium",
-  "labels": ["<label1>", "<label2>"],
-  "components": ["<component>"],
-  "story_points": null,
-  "sprint": null
-}
+```markdown
+---
+ticket: <TICKET-KEY or TBD>
+epic: "<EPIC-KEY> — <Epic title>"
+type: Story
+priority: Medium
+labels:
+  - <label1>
+  - <label2>
+components:
+  - <component>
+story_points: null
+sprint: null
+---
 ```
 
-- `ticket`: leave as `"TBD"` if not yet assigned; otherwise use the Jira key (e.g., `"PROJ-1201"`).
-- `type`: typically `"Story"` for feature work, `"Task"` for technical debt / refactors, `"Bug"` for defects.
-- `priority`: one of `"Highest"`, `"High"`, `"Medium"`, `"Low"`.
+- `ticket`: leave as `TBD` if not yet assigned; otherwise use the Jira key (e.g., `PROJ-1201`).
+- `type`: typically `Story` for feature work, `Task` for technical debt / refactors, `Bug` for defects.
+- `priority`: one of `Highest`, `High`, `Medium`, `Low`.
 - `story_points` and `sprint`: `null` unless the user provides values.
 
 ### 3. Title
@@ -246,10 +250,10 @@ docs/M2_PR4_ticket.md  →  docs/M2_PR4_ticket_forJira.md
 Apply all of the following transformations to the copy.
 The source file is **not modified**.
 
-#### 1. Remove the agent context comment and JSON metadata block
+#### 1. Remove the agent context comment and YAML frontmatter metadata block
 
 Delete the entire `<!-- Notes for AI agent: ... -->` HTML comment block at the top of the file.
-Delete the fenced JSON metadata block (`\`\`\`json { ... }\`\`\``) as well —
+Delete the YAML frontmatter metadata block (the `---`-delimited block) as well —
 Jira field values are set via the Jira UI, not pasted into the description.
 
 #### 2. Remove the PR title and Epic line
