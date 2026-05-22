@@ -12,7 +12,7 @@ description: >
   in the project root.
 metadata:
   author: Pavlo Glushko
-  version: "2.1.0"
+  version: "2.2.0"
   applies_to:
     - "**/plan-*.md"
     - "**/*-plan.md"
@@ -27,6 +27,8 @@ metadata:
     - start next commit
     - implement commits
     - commit by commit
+    - non-stop mode
+    - do not ask for confirmation
   capabilities:
     - implement single steps from plan
     - run tests after each step
@@ -64,6 +66,44 @@ Do not proceed to the next step until the user
 explicitly asks
 (e.g., "start next step", "start step 2",
 "implement step 3", or "continue").
+
+**Exception — Non-Stop Mode:**
+If the user says something like
+"implement in non-stop mode",
+"execute in non-stop mode",
+"do not ask for my confirmation between steps",
+or any equivalent phrasing,
+switch to non-stop mode (see below).
+
+## Non-Stop Mode
+
+When activated, skip all confirmation pauses
+and execute all steps sequentially without stopping:
+
+1. Implement Step N
+2. Run tests
+   - If tests fail, attempt to fix and re-run.
+     Keep iterating until tests pass —
+     there is no retry limit.
+   - **Stop only** if fixing the failure would require
+     a fundamental architectural change
+     that contradicts the plan's conceptual design
+     (e.g., a core assumption in the plan is invalid
+     and cannot be resolved without redesigning
+     major parts of the system).
+     In that case, report the structural conflict
+     to the user and wait for guidance.
+3. Run linting/formatting checks and fix any issues
+4. Create the git commit immediately
+   (using the same commit naming conventions)
+5. Move to Step N+1 and repeat
+
+After all steps are committed,
+run Post-Execution Verification as usual.
+
+**Still report a final summary** after all steps
+are done, listing each commit created
+and any issues encountered along the way.
 
 ## Execution Flow
 
