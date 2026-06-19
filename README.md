@@ -42,10 +42,11 @@ Install globally so skills are available in every project:
 npx skills add pavloglushko/ai-skills --all -g
 ```
 
-### GitHub Copilot in PyCharm / JetBrains IDEs
+### For Specific Agent
 
-Target GitHub Copilot specifically
-(do not use `--all` — it overrides `--agent` with all agents):
+Do not use `--all` — it overrides `--agent` with all agents.
+
+#### GitHub Copilot
 
 ```bash
 # Project-level — installs into .agents/skills/ in your repo
@@ -55,8 +56,17 @@ npx skills add pavloglushko/ai-skills --skill '*' --agent github-copilot -y
 npx skills add pavloglushko/ai-skills --skill '*' --agent github-copilot -g -y
 ```
 
-> **Note:** After installing, restart the Copilot chat or reopen
-> the project for the agent to pick up the new skills.
+#### Claude Code
+
+```bash
+# Project-level — installs into .agents/skills/ in your repo
+npx skills add pavloglushko/ai-skills --skill '*' --agent claude-code -y
+
+# Global — installs into ~/.copilot/skills/
+npx skills add pavloglushko/ai-skills --skill '*' --agent claude-code -g -y
+```
+
+> **Note:** After installing, restart the agent.
 
 ### Updating Skills
 
