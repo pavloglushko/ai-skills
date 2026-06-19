@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Git filter-branch message filter that reads mapping from a JSON file.
 
 Usage (as git filter-branch --msg-filter):
@@ -10,6 +8,8 @@ Reads the commit message from stdin, matches the first line against the
 JSON mapping keys (prefix match), and writes the new title to stdout.
 Unmatched messages pass through unchanged.
 """
+
+from __future__ import annotations
 
 import json
 import sys
