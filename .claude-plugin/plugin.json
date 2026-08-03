@@ -1,0 +1,10 @@
+{
+  "name": "pavlo-skills",
+  "version": "0.1.0",
+  "description": "All of Pavlo's reusable AI coding agent skills — from ticket writing to commit rewriting, planning, PR descriptions, and more.",
+  "author": {
+    "name": "Pavlo Glushko",
+    "email": "pavloglushko@gmail.com",
+    "url": "https://github.com/pavloglushko"
+  }
+}
