@@ -1,0 +1,14 @@
+{
+  "name": "pavlo-toolkit",
+  "version": "0.1.0",
+  "description": "Meta-plugin that installs everything — pulls in pavlo-skills (all skills) and pavlo-hooks (reformat guard) as dependencies.",
+  "author": {
+    "name": "Pavlo Glushko",
+    "email": "pavloglushko@gmail.com",
+    "url": "https://github.com/pavloglushko"
+  },
+  "dependencies": [
+    { "name": "pavlo-skills", "version": "^0.1.0" },
+    { "name": "pavlo-hooks", "version": "^0.1.0" }
+  ]
+}
