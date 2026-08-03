@@ -1,0 +1,25 @@
+{
+  "name": "pavlo",
+  "owner": {
+    "name": "Pavlo Glushko",
+    "email": "pavloglushko@gmail.com",
+    "url": "https://github.com/pavloglushko"
+  },
+  "plugins": [
+    {
+      "name": "pavlo-skills",
+      "source": "./",
+      "description": "All of Pavlo's reusable AI coding agent skills (ticket writing, planning, execution, commit rewriting, PR descriptions, and more). Root plugin — skills/ is unchanged so npx skills keeps working."
+    },
+    {
+      "name": "pavlo-hooks",
+      "source": "./plugins/pavlo-hooks",
+      "description": "Pavlo's Claude Code hooks. Includes a reformat-guard PostToolUse hook that reminds the model to scope reformatting to only the changed functions."
+    },
+    {
+      "name": "pavlo-toolkit",
+      "source": "./plugins/pavlo-toolkit",
+      "description": "Meta-plugin that installs everything — pulls in pavlo-skills and pavlo-hooks as dependencies. Install this to get the complete setup."
+    }
+  ]
+}
