@@ -10,6 +10,7 @@ description: >
   for logical issues and consistency with the ticket,
   then fixes any found inconsistencies
   before presenting the final plan.
+allowed-tools: Read(${CLAUDE_SKILL_DIR}/*)
 metadata:
   author: Pavlo Glushko
   version: "2.0.3"

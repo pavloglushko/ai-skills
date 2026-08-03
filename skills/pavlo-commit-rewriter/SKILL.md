@@ -5,6 +5,7 @@ description: >
   analysis & message drafting, and rewriting via git filter-branch.
   Use when you need to rewrite commit messages on the current branch
   to improve clarity, follow conventions, and align with a plan.
+allowed-tools: Read(${CLAUDE_SKILL_DIR}/*) Bash(python3 ${CLAUDE_SKILL_DIR}/scripts/*.py *) Bash(bash ${CLAUDE_SKILL_DIR}/scripts/*.sh *)
 metadata:
   author: Pavlo Glushko
   version: "3.1.1"

@@ -6,6 +6,7 @@ description: >
   Use when creating a new ticket for a feature, task, or bug.
   Also produces a stripped-down *_forJira copy that removes implementation
   detail and internal references before pasting into Jira.
+allowed-tools: Read(${CLAUDE_SKILL_DIR}/*)
 metadata:
   author: Pavlo Glushko
   version: "1.7.0"

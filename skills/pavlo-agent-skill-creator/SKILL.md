@@ -3,6 +3,7 @@ name: pavlo-agent-skill-creator
 description: >
   Create and edit SKILL.md files for AI coding agent skills.
   Use when adding a new skill or improving an existing one.
+allowed-tools: Read(${CLAUDE_SKILL_DIR}/*) Bash(${CLAUDE_SKILL_DIR}/scripts/*.sh *)
 metadata:
   author: Pavlo Glushko
   version: "1.3.0"
