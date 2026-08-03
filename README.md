@@ -18,7 +18,18 @@ a specific workflow — from writing tickets to rewriting git history.
 | [pavlo-release-announcer](skills/pavlo-release-announcer/SKILL.md) | Generates non-technical Slack announcements for end users based on ticket, commits, and plan. |
 | [pavlo-terminal-commands](skills/pavlo-terminal-commands/SKILL.md) | Safe terminal command patterns for AI coding agents. Use when running shell commands to avoid hanging terminals and parsing errors. |
 
-## Installation
+## Plugins (Claude Code)
+
+This repo is also a Claude Code plugin marketplace named `pavlo`.
+It exposes three plugins:
+
+| Plugin | What it installs |
+|--------|-----------------|
+| `pavlo-skills` | All skills (root plugin — `skills/` is unchanged so `npx skills` keeps working) |
+| `pavlo-hooks` | Hooks only — starts with the reformat-guard `PostToolUse` hook |
+| `pavlo-toolkit` | Everything: installs `pavlo-skills` + `pavlo-hooks` via dependencies |
+
+## Installation (npx skills)
 
 ### Project-Level (Current Repo Only)
 
@@ -82,6 +93,54 @@ npx skills update -g -y
 # Update a single skill
 npx skills update pavlo-commit-oriented-planning
 ```
+
+## Claude Plugin Installation
+
+Add the marketplace (once)
+
+```
+/plugin marketplace add pavloglushko/ai-skills
+```
+
+### Install Everything
+
+```
+# Global — all projects (default)
+/plugin install pavlo-toolkit@pavlo
+
+# Per-project — shared via git
+/plugin install pavlo-toolkit@pavlo --scope project
+
+# Local — only you, only this repo
+/plugin install pavlo-toolkit@pavlo --scope local
+```
+
+### Skills only
+
+```
+/plugin install pavlo-skills@pavlo
+/plugin install pavlo-skills@pavlo --scope project
+/plugin install pavlo-skills@pavlo --scope local
+```
+
+### Hooks only
+
+```
+/plugin install pavlo-hooks@pavlo
+/plugin install pavlo-hooks@pavlo --scope project
+/plugin install pavlo-hooks@pavlo --scope local
+```
+
+### Disable the reformat-guard hook
+
+```
+/plugin install pavlo-hooks@pavlo --config enable_reformat_hook=false
+```
+
+### Updating plugins
+
+1. Re-run `/plugin install <name>@pavlo` (updates are not automatic).
+2Run `/reload-plugins` to pick up changes in the current session.
 
 ## How It Works
 
