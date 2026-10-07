@@ -12,7 +12,7 @@ description: >
   in the project root.
 metadata:
   author: Pavlo Glushko
-  version: "2.2.0"
+  version: "2.3.0"
   applies_to:
     - "**/plan-*.md"
     - "**/*-plan.md"
@@ -233,21 +233,49 @@ and do not create an Issues Found section.
 
 ### Commit Naming
 
-Two kinds of commits can arise during execution:
+Derive the commit message convention from the repository
+you are working in.
+A commit title describes the change itself,
+not its position in the plan.
+The plan step number is internal bookkeeping
+that belongs in the plan file, not in the commit message.
 
-- **Plan step** — implements a specific step from the plan:
-  title starts with `Step X:` where `X` is the plan step
-  number
-  (e.g., `Step 3: Add route distance caching`).
-- **Unplanned commit** —
-  does not correspond to any plan step
-  (e.g., a lint-only fix, a missed import,
-  a typo correction discovered mid-implementation):
-  plain title with no `Step X:` prefix.
+Determine the convention in this order:
 
-After the `Step X:` prefix (or for plain titles),
-follow the conventions in
-`.github/git-commit-instructions.md`.
+1. **Agent instruction files** —
+   look for files such as `AGENTS.md`, `CLAUDE.md`,
+   `.github/git-commit-instructions.md`,
+   `.github/copilot-instructions.md`, or `CONTRIBUTING.md`.
+   Follow any commit message rules they define.
+2. **Recent commit history** —
+   if no instruction file covers commit messages,
+   infer the convention from history:
+   `git --no-pager log --oneline -20`
+   and match the existing style
+   (type prefixes, scope, tense, capitalization,
+   imperative vs. past tense).
+3. **Fallback** —
+   if neither instruction files nor history establish a convention,
+   use the Conventional Commits format:
+
+   ```
+   <type>(<scope>): <short description>
+
+   <optional long description>
+   ```
+
+   - `<type>` is one of:
+     `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `perf`, `build`, `ci`.
+     Pick the one that matches the change
+     (e.g., `fix` for a bug fix, `chore` for housekeeping).
+   - `<scope>` is the affected module, package, or area
+     (e.g., `auth`, `api`, `parser`).
+     Omit the parentheses if no clear scope applies.
+   - `<short description>` is a lowercase imperative phrase
+     with no trailing period
+     (e.g., `add route distance caching`).
+   - The optional long description is separated by a blank line
+     and explains the reasoning, context, or notable decisions.
 
 ### When Implementing Each Step
 
@@ -356,4 +384,5 @@ follow the conventions in
   Creates the multi-step plan this skill executes.
 - **Commit Rewriter**:
   Can improve commit messages after execution;
-  expects `Step X:` prefix for plan-mapped commits.
+  maps commits to plan steps
+  while following the repository's commit conventions.
